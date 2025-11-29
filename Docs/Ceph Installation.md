@@ -16,7 +16,7 @@ Min number of replicas: 2
 
 ### OSDs:
 Each host has a usb 3.1(10Gb throughput) to sata connector for external ssds. Since I'm using small form factor devices, I decided to go for an external storage solution due to the lack of space in each device.
-3 of the hosts have 1x480GB SSD. 1 host has 1x2TB SSD. Having OSDs of different sizes is also not ideal, but I'm working with what I have. Ceph will assign a larger weight to this OSD device, so more of the data is written there than the other 3 drives.
+3 of the hosts have 1x480GB SSD. 1 host has 1x2TB SSD. Having OSDs of different sizes is also not ideal, but I'm working with what I have. Ceph will assign a larger weight to the 2TB OSD device, so more of the data is written there than the other 3 drives.
 
 ### Ceph Pool:
 Accept defaults for this. Used all available OSDs to create the pool. VMs should now be able to utilize this for storage.  
