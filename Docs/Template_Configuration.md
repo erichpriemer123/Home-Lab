@@ -21,7 +21,7 @@ https://www.youtube.com/watch?v=1Ec0Vg5be4s
 5. Resize image to your liking using this command:
     - Qemu-img resize <rhel_img_name> <# of GB>G
 6. Attach disk to vm using this command:
-    - qm importdisk <vm id> <rhel_img_name> <storage location>
+    - qm importdisk <vm-id> <rhel_img_name> <storage-location>
     - Storage location = ceph pool
 7. After attaching the disk, edit disk settings and enable discard. This will allow the guest OS run trim commands, freeing unused space back to the host
 8. In vm options, edit Boot Order, and disable network boot, and enable disk boot
