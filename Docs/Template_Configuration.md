@@ -1,4 +1,4 @@
-# Template Configuraiton
+# Template Configuration
 For template creation we will use Cloud-init. Cloud-init will allow me to automate the process of configuring a virtual machine and the installation of an operating system.
 We will be using a RHEL cloud image (qcow2). These images are already set up for use with cloud-init and are made to be templated. They are also optimized to run as virtual machines and are more storage efficient. When the creation of the virtual machine template is done, every cloned VM from this template will quickly boot and we will have a unique, ready to use virtual machine.
 
