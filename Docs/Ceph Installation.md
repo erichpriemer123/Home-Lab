@@ -1,6 +1,6 @@
 # Ceph Installation
 
-Ceph is important to achieve shared storage. It allows us to pool together local drives on each device, as long as they are on the same LAN.  This will allow us to achieve features like high availability, VM migration, and storage availability. If one drive fails, data will be saved due to replication.
+Ceph is important to achieve shared storage. It allows us to pool together local drives from each device in the ceph cluster, as long as they are on the same LAN.  This will allow us to achieve features like high availability, VM migration, and storage availability. If one drive fails, data will be saved due to replication. This will provide us block level replication, so it will not protect from file level corruption, so we still need some sort of backup system in place.
 
 Ceph installation was pretty simple by using the gui following this guide:
 
