@@ -2,7 +2,9 @@ Terraform has allowed me to create a rhel template. This template will be precon
 <br>
 <br>
 Note: Terraform provider uses local user created below via adduser, to ssh into the host to create the cloud-init snippet. Pam user is used to create all other resources.
-
+<br>
+<br>
+Github Repo: https://github.com/erichpriemer123/homelab-iac/tree/Main/proxmox-vm-terraform
 
 Documentation:
 - https://registry.terraform.io/providers/bpg/proxmox/latest/docs
