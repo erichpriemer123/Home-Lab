@@ -3,10 +3,20 @@
 Proxmox uses the APT package manager.
 <br>
 <br>
-#### APT sources used
+#### APT sources currently being used
 - http://deb.debian.org/debian/
 - http://deb.debian.org/debian/
 - http://download.proxmox.com/debian/ceph-squid
+- http://download.proxmox.com/debian/pve
+
+<br>
+
+#### Before/After Upgrading
+- Check uptime
+- Check available disk space
+- Check free memory
+- Check for failed Services
+
 
 <br>
 <br>
@@ -16,12 +26,15 @@ Proxmox uses the APT package manager.
 
 - Click add
 - Choose No Subscription from Repository drop down
+- Since this is a homelab, there is no worries about the no subscription repo
 <br>
 <br>
 
 #### Manually Upgrading Host Packages
-<img width="639" height="437" alt="image" src="https://github.com/user-attachments/assets/6518f52e-1194-4e64-bba5-0747fa8cd95f" />
+<img width="833" height="385" alt="image" src="https://github.com/user-attachments/assets/4671a971-f500-4b70-965e-4ff28b8d83a3" />
 
+- Click Refresh to check for new updates
+- Click Upgrade
 - Services do restart after upgrading packages. 
 
 <br>
