@@ -10,7 +10,7 @@ Some program, may convert the current fqdn to lowercase, and pass it to one of t
 The final problem I have with my fqdn, is that I used the .local subdomain. This subdomain is reserved by mDNS.I will be changing this to .org
 <br>
 <br>
-# How to change the hostname of proxmox hosts in a cluster
+# How to change the fqdn of proxmox hosts in a cluster
 Sources: 
 -  https://pve.proxmox.com/wiki/Renaming_a_PVE_node
 -  https://pve.proxmox.com/wiki/Cluster_Manager
