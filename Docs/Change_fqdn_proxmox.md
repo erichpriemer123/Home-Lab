@@ -16,13 +16,14 @@ Sources:
 -  https://pve.proxmox.com/wiki/Cluster_Manager
 -  https://forum.proxmox.com/threads/changing-name-of-nodes-in-cluster.136623/
 -  https://forum.proxmox.com/threads/rename-a-cluster-not-a-node.34442/
+-  https://www.thomas-krenn.com/en/wiki/Change_hostname_in_a_productive_Proxmox_Ceph_HCI_cluster
 
 I will be change the fqdn from <b>pve<1-4>.ErichStudios.local</b> ->  <b>pve<1-4>.erichlab.org</b>
 <br>
 <br>
 First, I will change the cluster name, which is currently ErichStudios to erichlab. 
 <br>
-Since it is not recommended to change the name of a host in a cluster, we will have to remove the node from the cluster, change the name, and re-add it.
+I will then change the 
 <br>
 <br>
 ### Change the cluster name
@@ -35,3 +36,26 @@ Since it is not recommended to change the name of a host in a cluster, we will h
 
 2. On every node, restart corosync service.
 3. On any node, restart pveproxy, refresh browser, restart pve-cluster, and refrash browser one last time.
+<br>
+<br>
+
+### Change the fqdn of a host
+<br>
+Note, steps 2 onward are to be done one at a time for each host.
+<br>
+<br>
+
+1. Temporarily Disable HA
+    - Stop PVE-HA-LRM service on all nodes, one at a time
+    - Once PVE-HA-LRM is stopped on each node, stop PVE-HA-CRM on each node, one at a time.
+
+2. Edit /etc/hosts on a single host
+    - change the domain name and sub-domain to erichlab.org
+    
+3. Update the myhostname value in /etc/postfix/main.cf on a single host
+    - remove ErichStuios.local and change it to erichlab.org
+4. Restart corosync service on every host
+5. Reboot host that you changed the fqdn for.
+6. Reissue certs on each node
+    - pvecm updatecerts -f
+7. restart pveproxy and pvestatd on each node
