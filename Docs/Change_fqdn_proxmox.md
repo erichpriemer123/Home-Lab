@@ -17,6 +17,7 @@ Sources:
 -  https://forum.proxmox.com/threads/changing-name-of-nodes-in-cluster.136623/
 -  https://forum.proxmox.com/threads/rename-a-cluster-not-a-node.34442/
 -  https://www.thomas-krenn.com/en/wiki/Change_hostname_in_a_productive_Proxmox_Ceph_HCI_cluster
+-  https://forum.proxmox.com/threads/wrong-ip-in-subject-alternative-names-section.179353/
 
 I will be change the fqdn from <b>pve<1-4>.ErichStudios.local</b> ->  <b>pve<1-4>.erichlab.org</b>
 <br>
