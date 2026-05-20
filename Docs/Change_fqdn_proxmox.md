@@ -20,30 +20,21 @@ Sources:
 -  https://forum.proxmox.com/threads/wrong-ip-in-subject-alternative-names-section.179353/
 -  https://forum.proxmox.com/threads/new-hostname-and-ssl-certificates.44736/
 
-I will be change the fqdn from <b>pve<1-4>.ErichStudios.local</b> ->  <b>pve<1-4>.erichlab.org</b>
-<br>
-<br>
-First, I will change the cluster name, which is currently ErichStudios to erichlab. 
-<br>
-I will then change the 
+The fqdn will be changed from <b>pve<1-4>.ErichStudios.local</b> ->  <b>pve<1-4>.erichlab.org</b>
+
+This will require use to change the cluster name, edit configs on each node, and reissue certificates
 <br>
 <br>
 ### Change the cluster name
 
 1. On any node
-
     -  Run command, "nano /etc/pve/corosync.conf" and change clustername in <b>totem</b>, to desired name and increment config_version by 1.
-
-<br>
-
 2. On every node, restart corosync service.
 3. On any node, restart pveproxy, refresh browser, restart pve-cluster, and refrash browser one last time.
 <br>
 <br>
 
 ### Change the fqdn of a host
-
-<br>
 
 1. Temporarily Disable HA
     - Stop PVE-HA-LRM service on all nodes, one at a time
