@@ -18,6 +18,7 @@ Sources:
 -  https://forum.proxmox.com/threads/rename-a-cluster-not-a-node.34442/
 -  https://www.thomas-krenn.com/en/wiki/Change_hostname_in_a_productive_Proxmox_Ceph_HCI_cluster
 -  https://forum.proxmox.com/threads/wrong-ip-in-subject-alternative-names-section.179353/
+-  https://forum.proxmox.com/threads/new-hostname-and-ssl-certificates.44736/
 
 I will be change the fqdn from <b>pve<1-4>.ErichStudios.local</b> ->  <b>pve<1-4>.erichlab.org</b>
 <br>
@@ -41,22 +42,29 @@ I will then change the
 <br>
 
 ### Change the fqdn of a host
-<br>
-Note, steps 2 onward are to be done one at a time for each host.
-<br>
+
 <br>
 
 1. Temporarily Disable HA
     - Stop PVE-HA-LRM service on all nodes, one at a time
     - Once PVE-HA-LRM is stopped on each node, stop PVE-HA-CRM on each node, one at a time.
 
-2. Edit /etc/hosts on a single host
+2. Edit /etc/hosts on every host
     - change the domain name and sub-domain to erichlab.org
     
-3. Update the myhostname value in /etc/postfix/main.cf on a single host
-    - remove ErichStuios.local and change it to erichlab.org
-4. Restart corosync service on every host
-5. Reboot host that you changed the fqdn for.
-6. Reissue certs on each node
+3. Update the myhostname value in /etc/postfix/main.cf on every host
+    - remove ErichStudios.local and change it to erichlab.org
+4.  Modify the search value in /etc/resolv.conf on every host
+    - remove ErichStudios.local and change it to erichlab.org
+5. Run this command to update aliases.db
+    - newaliases
+6. Remove the pve-ssl key and pem file for each node
+    - rm -f /etc/pve/nodes/hostname/pve-ssl.pem
+    - rm -f /etc/pve/nodes/hostname/pve-ssl.key
+7. Remove the CA root pem and key
+    - rm -f /etc/pve/pve-root-ca.pem
+    - rm -f /etc/pve/priv/pve-root-ca.key
+8. Reissue certs on each node
     - pvecm updatecerts -f
-7. restart pveproxy and pvestatd on each node
+9. restart pveproxy and pvestatd on each node
+    - systemctl restart pveproxy && systemctl restart pvestatd
